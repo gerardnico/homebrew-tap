@@ -1,12 +1,12 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-class Dockenv < Formula
-  desc "Docker commands driven by environment variables"
-  homepage "https://github.com/gerardnico/dockenv"
+class Direnvext < Formula
+  desc "Direnv extensions commands that implements vault secret and multi-env supports"
+  homepage "https://github.com/gerardnico/direnv-ext"
   license "MIT"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/gerardnico/dockenv.git", branch: "main"
+  head "https://github.com/gerardnico/direnv-ext.git", branch: "main"
   # Head replace the url, sha256 and version properties???
   # url "https://github.com/bb010g/betterdiscordctl"
   # version "2.0.1"
@@ -29,7 +29,7 @@ class Dockenv < Formula
 
       #{scripts_list}
 
-      Enjoy dockenv!
+      Enjoy!
 
     EOS
   end

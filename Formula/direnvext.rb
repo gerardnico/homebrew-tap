@@ -34,6 +34,10 @@ class Direnvext < Formula
     EOS
   end
 
+  depends_on "direnv"
+  depends_on "bash"
+  depends_on "gerardnico/tap/bashlib"
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #

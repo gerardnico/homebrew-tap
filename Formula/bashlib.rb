@@ -10,12 +10,13 @@ class Bashlib < Formula
   # version "2.0.1"
   # sha256 "63d1de17449611f1490b1930e63cc8890f9f10c7e317f02c901e6a79236c10e2"
 
-  # depends_on "bash"
+  depends_on "gerardnico/tap/shdoc"
   # depends_on "cmake" => :build
   
   def install
 
     lib.install Dir["lib/*.sh"]
+    bin.install Dir["bin/*"]
     
     # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
     # Install all .sh files from the libs directory to #{prefix}/libexec
@@ -36,7 +37,12 @@ class Bashlib < Formula
 
       #{scripts_list}
 
-      Enjoy!
+    EOS
+    scripts_list = bin.children.map { |script| "  - #{script.basename}" }.join("\n")
+    <<~EOS
+      The following scripts have been installed:
+
+      #{scripts_list}
 
     EOS
   end

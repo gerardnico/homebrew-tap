@@ -37,6 +37,7 @@ class Dockenv < Formula
   end
 
   depends_on "gerardnico/tap/direnvext"
+  depends_on "gerardnico/tap/bashlib"
   
   test do
     # `test do` will create, run in and delete a temporary directory.

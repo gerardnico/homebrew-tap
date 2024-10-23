@@ -15,7 +15,12 @@ class Bashlib < Formula
   
   def install
 
-    lib.install Dir["lib/*.sh"]
+    # Problem, they are not in the path
+    # https://github.com/orgs/Homebrew/discussions/1600
+    # lib.install Dir["lib/*.sh"]
+    # We add them then to bin (They will not be executable because they don't have any shebang)
+    bin.install Dir["lib/*.sh"]
+    
     bin.install Dir["bin/*"]
     
     # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
@@ -31,13 +36,6 @@ class Bashlib < Formula
 
   # https://rubydoc.brew.sh/Formula#caveats-instance_method
   def caveats
-    scripts_list = lib.children.map { |script| "  - #{script.basename}" }.join("\n")
-    <<~EOS
-      The following libraries have been installed:
-
-      #{scripts_list}
-
-    EOS
     scripts_list = bin.children.map { |script| "  - #{script.basename}" }.join("\n")
     <<~EOS
       The following scripts have been installed:

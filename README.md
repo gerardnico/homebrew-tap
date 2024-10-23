@@ -10,6 +10,7 @@ A collection of Homebrew Formulae
 * [direnvext](https://github.com/gerardnico/direnv-ext) - Direnv extension with vault secret and multi-env file supports
 * [dockenv](https://github.com/gerardnico/dockenv) - Docker commands driven by environment variables
 * [kube](https://github.com/gerardnico/kube) - A Library of Kube Utilities
+* [gitx](https://github.com/gerardnico/git-x) - A collection of Git command extensions
 
 
 ## How do I install these formulae?

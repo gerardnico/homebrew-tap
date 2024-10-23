@@ -17,9 +17,8 @@ class Bashlib < Formula
 
     # Problem, they are not in the path
     # https://github.com/orgs/Homebrew/discussions/1600
-    # lib.install Dir["lib/*.sh"]
-    # We add them then to bin (They will not be executable because they don't have any shebang)
-    bin.install Dir["lib/*.sh"]
+    # In the installation, we add an instruction on how to do so
+    lib.install Dir["lib/*.sh"]
     
     bin.install Dir["bin/*"]
     
@@ -41,6 +40,18 @@ class Bashlib < Formula
       The following scripts have been installed:
 
       #{scripts_list}
+
+    EOS
+    scripts_list = lib.children.map { |script| "  - #{script.basename}" }.join("\n")
+    <<~EOS
+      The following libraries have been installed:
+
+      #{scripts_list}
+      
+      !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      Add the libraries directory into your path in your `.bashrc` file
+      export PATH=$(brew --prefix bashlib)/lib:$PATH
+      !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     EOS
   end

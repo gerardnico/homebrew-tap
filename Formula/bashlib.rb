@@ -11,7 +11,11 @@ class Bashlib < Formula
   # sha256 "63d1de17449611f1490b1930e63cc8890f9f10c7e317f02c901e6a79236c10e2"
 
   depends_on "gerardnico/tap/shdoc"
-  # depends_on "cmake" => :build
+  # file linux command, not available as formulae
+  depends_on "file" => :build if OS.linux?
+  # Gettext for envsubst
+  # https://formulae.brew.sh/formula/gettext
+  depends_on "gettext"
   
   def install
 
@@ -21,6 +25,9 @@ class Bashlib < Formula
     lib.install Dir["lib/*.sh"]
     
     bin.install Dir["bin/*"]
+
+    # Install man pages:
+    man1.install Dir["build/docs/man/*.1"]
     
     # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
     # Install all .sh files from the libs directory to #{prefix}/libexec
@@ -31,6 +38,12 @@ class Bashlib < Formula
     # ie /home/linuxbrew/.linuxbrew/libexec
     #libexec.install Dir["lib/*.sh"]
     
+  end
+
+  def post_install
+    if !which("file")
+      odie "The 'file' utility is required by the bashlib-file.sh library but was not found. Install it with your system package manager if you plan to use it."
+    end
   end
 
   # https://rubydoc.brew.sh/Formula#caveats-instance_method
@@ -49,8 +62,15 @@ class Bashlib < Formula
       #{scripts_list}
       
       !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      Add the libraries directory into your path in your `.bashrc` file
+      In your bashrc, set the BASHLIB_LIBRARY_PATH env
+ 
+      export BASHLIB_LIBRARY_PATH=$(brew --prefix bashlib)/lib
+      
+      Optionally, add the libraries directory into your path for the cli
+      that does not use yet the BASHLIB_LIBRARY_PATH env.
+
       export PATH=$(brew --prefix bashlib)/lib:$PATH
+      
       !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     EOS

@@ -1,44 +1,52 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-class Dockenv < Formula
-  desc "Docker commands driven by environment variables"
-  homepage "https://github.com/gerardnico/dockenv"
+class Sshx < Formula
+  desc "A Library of SSH Utilities"
+  homepage "https://github.com/gerardnico/ssh-x"
   license "MIT"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/gerardnico/dockenv.git", branch: "main"
-  # local head
-  # head "file:///home/admin/code/dockenv", branch: "main", using: :git
+  head "https://github.com/gerardnico/ssh-x.git", branch: "main"
+  # head "file:///home/admin/code/bash-lib", branch: "main", using: :git
   # Head replace the url, sha256 and version properties???
   # url "https://github.com/bb010g/betterdiscordctl"
   # version "2.0.1"
   # sha256 "63d1de17449611f1490b1930e63cc8890f9f10c7e317f02c901e6a79236c10e2"
 
+  depends_on "gerardnico/tap/bashlib"
   # depends_on "cmake" => :build
-
+  
   def install
-    # Install all bash scripts to the bin directory
-    # https://docs.brew.sh/Formula-Cookbook#bininstall-foo
-    # Bin.install install the script into `/home/linuxbrew/.linuxbrew/bin/`
+    
     bin.install Dir["bin/*"]
+
+    # Install man pages:
+    man1.install Dir["build/docs/man/*.1"]
+    
+    # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
+    # Install all .sh files from the libs directory to #{prefix}/libexec
+    # and symlink to /usr/local/lib
+    # where prefix resolves to resolves to where homebrew is installed
+    # 
+    # Install libraries to libexec of HOMEBREW
+    # ie /home/linuxbrew/.linuxbrew/libexec
+    #libexec.install Dir["lib/*.sh"]
+    
   end
 
   # https://rubydoc.brew.sh/Formula#caveats-instance_method
   def caveats
     scripts_list = bin.children.map { |script| "  - #{script.basename}" }.join("\n")
     <<~EOS
-      The following files have been installed:
+      The following scripts have been installed:
 
       #{scripts_list}
 
-      Enjoy dockenv!
-
+      You need to set the BASHLIB_LIBRARY_PATH env in your bashrc
+      
+        export BASHLIB_LIBRARY_PATH=$(brew --prefix bashlib)/lib
+    
     EOS
   end
-
-  depends_on "gerardnico/tap/direnvext"
-  depends_on "gerardnico/tap/bashlib"
   
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #

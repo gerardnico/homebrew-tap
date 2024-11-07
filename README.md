@@ -4,14 +4,21 @@
 
 A collection of Homebrew Formulae
 
-## List
+## Formulae List
 
-* [bashlib](https://github.com/gerardnico/bash-lib) - A collection of Bash Libraries
-* [direnvext](https://github.com/gerardnico/direnv-ext) - Direnv extension with vault secret and multi-env file supports
-* [dockenv](https://github.com/gerardnico/dockenv) - Docker commands driven by environment variables
-* [kube](https://github.com/gerardnico/kube) - A Library of Kube Utilities
-* [gitx](https://github.com/gerardnico/git-x) - A collection of Git command extensions
+### X Extensions Collection
 
+The `X Extensions Collection` is a collection of extensions for clients.
+
+* [direnvx](https://github.com/gerardnico/direnv-x) - Direnv extension with vault secret and multi-env file supports
+* [dockx](https://github.com/gerardnico/dock-x) - Docker commands driven by environment variables
+* [gitx](https://github.com/gerardnico/git-x) - Git commands based on multiple repos
+* [kubex](https://github.com/gerardnico/kube-x) - Kube commands based on app
+* [sshx](https://github.com/gerardnico/ssh-x) - SSH commands to get only one agent instance and load private keys.
+
+### Library
+
+* [bashlib](https://github.com/gerardnico/bash-lib) - A collection of Bash Libraries used by Bash Client
 
 ## How do I install these formulae?
 

@@ -2,7 +2,7 @@
 
 ## About
 
-A collection of Homebrew Formulae
+This is a Homebrew tap - ie a collection of Homebrew Formulae
 
 ## Formulae List
 

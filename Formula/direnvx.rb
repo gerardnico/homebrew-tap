@@ -20,7 +20,7 @@ class Direnvx < Formula
     bin.install Dir["bin/*"]
 
     # Install man pages:
-    man1.install Dir["build/docs/man/*.1"]
+    man1.install Dir["docs/man/*.1"]
     
   end
 

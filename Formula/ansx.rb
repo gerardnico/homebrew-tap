@@ -1,16 +1,12 @@
-class Gitx < Formula
-  desc "A collection of Git commands extension (from backup to multiple repository execution)"
-  homepage "https://github.com/gerardnico/git-x"
+class Ansx < Formula
+  desc "Easy ansible execution with extras thanks to Docker"
+  homepage "https://github.com/gerardnico/ansible-x"
   license "MIT"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/gerardnico/git-x.git", branch: "main"
+  head "https://github.com/gerardnico/ansible-x.git", branch: "main"
   
   depends_on "gerardnico/tap/bashlib"
-  # Git Backup (Date)
-  depends_on "coreutils"
-  depends_on "git"
-  depends_on "openssh"
-  depends_on "curl"
+  depends_on "docker"
   
   def install
     
@@ -49,7 +45,7 @@ class Gitx < Formula
     
     # Example
     # system "#{bin}/script1", "--version"
-    system "#{bin}/git-exec", "--help"
+    system "#{bin}/ansible", "--help"
   end
 end
 

@@ -19,15 +19,16 @@ class Bashlib < Formula
   
   def install
 
-    # Problem, they are not in the path
-    # https://github.com/orgs/Homebrew/discussions/1600
-    # In the installation, we add an instruction on how to do so
+    # Problem: Using lib.install Dir["lib/*.sh"] 
+    #          the library are not in the path
+    #          https://github.com/orgs/Homebrew/discussions/1600
+    # Solution: We use `bin.install`
     bin.install Dir["lib/*.sh"]
     
     bin.install Dir["bin/*"]
 
     # Install man pages:
-    man1.install Dir["docs/man/*.1"]
+    man1.install Dir["docs/man/man1/*.1"]
     
     # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
     # Install all .sh files from the libs directory to #{prefix}/libexec
@@ -55,25 +56,6 @@ class Bashlib < Formula
       #{scripts_list}
 
     EOS
-    scripts_list = lib.children.map { |script| "  - #{script.basename}" }.join("\n")
-    <<~EOS
-      The following libraries have been installed:
-
-      #{scripts_list}
-      
-      !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      In your bashrc, set the BASHLIB_LIBRARY_PATH env
- 
-      export BASHLIB_LIBRARY_PATH=$(brew --prefix bashlib)/lib
-      
-      Optionally, add the libraries directory into your path for the cli
-      that does not use yet the BASHLIB_LIBRARY_PATH env.
-
-      export PATH=$(brew --prefix bashlib)/lib:$PATH
-      
-      !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-    EOS
   end
   
 
@@ -89,8 +71,9 @@ class Bashlib < Formula
     # executables being tested: `system bin/"program", "do", "something"`.
     
     # Example
-    #  system "#{bin}/script1", "--version"
-    #  system "#{bin}/script2", "--help"
+    system "#{bin}/bashlib-docgen", "--help"
+    # system "#{bin}/script1", "--version"
+    
   end
 end
 

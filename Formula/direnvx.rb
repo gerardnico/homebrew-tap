@@ -32,12 +32,6 @@ class Direnvx < Formula
 
       #{scripts_list}
 
-
-      You need to set the BASHLIB_LIBRARY_PATH env in your bashrc
-      
-        export BASHLIB_LIBRARY_PATH=$(brew --prefix bashlib)/lib
-
-
     EOS
   end
   

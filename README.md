@@ -34,3 +34,22 @@ tap "gerardnico/tap"
 brew "<formula>"
 ```
 
+## Dev Support
+
+### How to test docker dependent command such as ans-x
+
+Because docker does not exist in the brew image, we can't use `--group-add docker`
+we need to sudo as root.
+
+Example with [ans-x](Formula/ansx.rb)
+```bash
+docker run --rm --tty --interactive -v /var/run/docker.sock:/var/run/docker.sock $DOCK_X_NAMESPACE/$DOCK_X_NAME:$DOCK_X_TAG bash
+# install
+brew install --HEAD gerardnico/tap/ansx
+# then
+sudo su -
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+ansible --version
+```
+
+

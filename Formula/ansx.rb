@@ -43,9 +43,13 @@ class Ansx < Formula
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system bin/"program", "do", "something"`.
     
+    # We can't really test the installation because it's a wrapper around docker
+    # Therefore the docker daemon should be up
+    # For now manually test
+    # 
     # Example
     # system "#{bin}/script1", "--version"
-    system "#{bin}/ansible", "--help"
+    # system "#{bin}/ans-x-bash", "synopsis"
   end
 end
 

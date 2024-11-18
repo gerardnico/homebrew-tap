@@ -38,10 +38,6 @@ class Kubex < Formula
       The following scripts have been installed:
 
       #{scripts_list}
-
-      You need to set the BASHLIB_LIBRARY_PATH env in your bashrc
-      
-        export BASHLIB_LIBRARY_PATH=$(brew --prefix bashlib)/lib
     
     EOS
   end
@@ -60,7 +56,7 @@ class Kubex < Formula
     
     # Example
     #  system "#{bin}/script1", "--version"
-    #  system "#{bin}/script2", "--help"
+    system "#{bin}/kubectx", "--help"
   end
 end
 

@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Shdoc < Formula
   desc "Documentation generator for shell scripts (bash, sh, zsh)."
   homepage "https://github.com/reconquest/shdoc"

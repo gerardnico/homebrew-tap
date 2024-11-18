@@ -3,7 +3,7 @@ class Ansx < Formula
   homepage "https://github.com/gerardnico/ansible-x"
   license "MIT"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/gerardnico/ansible-x.git", branch: "master"
+  head "https://github.com/gerardnico/ansible-x.git", branch: "main"
   
   depends_on "gerardnico/tap/bashlib"
   depends_on "docker"

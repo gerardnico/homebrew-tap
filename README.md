@@ -15,6 +15,7 @@ The `X Extensions Collection` is a collection of extensions for clients.
 * [gitx](https://github.com/gerardnico/git-x) - Git commands based on multiple repos
 * [kubex](https://github.com/gerardnico/kube-x) - Kube commands based on app
 * [sshx](https://github.com/gerardnico/ssh-x) - SSH commands to get only one agent instance and load private keys.
+* [ans-x (ansible)](https://github.com/gerardnico/ansible-x) - One command line Ansible with Extra
 
 ### Library
 

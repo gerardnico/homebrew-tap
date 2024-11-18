@@ -22,7 +22,7 @@ class Bashlib < Formula
     # Problem, they are not in the path
     # https://github.com/orgs/Homebrew/discussions/1600
     # In the installation, we add an instruction on how to do so
-    lib.install Dir["lib/*.sh"]
+    bin.install Dir["lib/*.sh"]
     
     bin.install Dir["bin/*"]
 

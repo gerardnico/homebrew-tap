@@ -20,7 +20,7 @@ class Gitx < Formula
     bin.install Dir["bin/*"]
     
     # Install man pages:
-    man1.install Dir["docs/man/*.1"]
+    man1.install Dir["docs/man/man1/*.1"]
     
   end
 

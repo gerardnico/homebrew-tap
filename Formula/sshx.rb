@@ -18,7 +18,7 @@ class Sshx < Formula
     bin.install Dir["bin/*"]
 
     # Install man pages:
-    man1.install Dir["docs/man/*.1"]
+    man1.install Dir["docs/man/man1/*.1"]
     
     # [Ref](https://rubydoc.brew.sh/Formula#libexec-instance_method)
     # Install all .sh files from the libs directory to #{prefix}/libexec

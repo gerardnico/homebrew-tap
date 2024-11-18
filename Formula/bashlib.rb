@@ -51,7 +51,7 @@ class Bashlib < Formula
   def caveats
     scripts_list = bin.children.map { |script| "  - #{script.basename}" }.join("\n")
     <<~EOS
-      The following scripts have been installed:
+      The following scripts (without sh extension) and libraries (with sh extension) have been installed:
 
       #{scripts_list}
 

@@ -11,7 +11,8 @@ class Dockx < Formula
   # version "2.0.1"
   # sha256 "63d1de17449611f1490b1930e63cc8890f9f10c7e317f02c901e6a79236c10e2"
 
-  # depends_on "cmake" => :build
+  depends_on "yq"
+  depends_on "kubectl"
 
   def install
     # Install all bash scripts to the bin directory

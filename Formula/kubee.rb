@@ -1,9 +1,9 @@
-class Kubex < Formula
-  desc "A Library of Kube Utilities"
-  homepage "https://github.com/gerardnico/kube"
+class Kubee < Formula
+  desc "Kubee - Kubernetes the Easy Way"
+  homepage "https://github.com/gerardnico/kubee"
   license "MIT"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/gerardnico/kube.git", branch: "main"
+  head "https://github.com/gerardnico/kubee.git", branch: "main"
   # head "file:///home/admin/code/bash-lib", branch: "main", using: :git
   # Head replace the url, sha256 and version properties???
   # url "https://github.com/bb010g/betterdiscordctl"
@@ -56,7 +56,7 @@ class Kubex < Formula
     
     # Example
     #  system "#{bin}/script1", "--version"
-    system "#{bin}/kubectx", "--help"
+    system "#{bin}/kubee", "--help"
   end
 end
 

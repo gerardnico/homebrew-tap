@@ -7,6 +7,7 @@ class Ansx < Formula
   
   depends_on "gerardnico/tap/bashlib"
   depends_on "docker"
+  depends_on "jq"
   
   def install
     

@@ -21,6 +21,9 @@ class Giture < Formula
     # Install man pages:
     man1.install Dir["man1/*.1"]
 
+    # Install the library
+    lib.install Dir["lib/*.sh"]
+
   end
 
   # https://rubydoc.brew.sh/Formula#caveats-instance_method

@@ -1,9 +1,9 @@
 class Giture < Formula
   desc "Git commands for everyday use (Git Flow, Multiple repos command execution, Hosting Backup, ...)"
   homepage "https://github.com/gerardnico/giture"
-  url "https://github.com/gerardnico/giture/releases/download/v0.1.0/giture-0.1.0.zip"
-  version "0.1.0"
-  sha256 "4c61711e85c2345204b125661453d20ac3a48a576113bde25d0a8179040887c5"
+  url "https://github.com/gerardnico/giture/releases/download/v0.1.1/giture-0.1.1.zip"
+  version "0.1.1"
+  sha256 "e5194edbec1d7f69ada437dfa2218f956c1f5839419c54f42d607f50966bd76a"
   license "Apache-2.0"
 
   depends_on "coreutils"
@@ -21,10 +21,10 @@ class Giture < Formula
     # Install man pages:
     man1.install Dir["man1/*.1"]
 
-    # Install the library
+    # Library installation
     lib.install Dir["lib/*.sh"]
 
-  end
+end
 
   # https://rubydoc.brew.sh/Formula#caveats-instance_method
   def caveats
@@ -50,7 +50,7 @@ class Giture < Formula
     # executables being tested: `system bin/"program", "do", "something"`.
 
     output = shell_output("#{bin}/git-exec --help")
-    # assert_match "0.1.0", output
+    # assert_match "0.1.1", output
 
   end
 end

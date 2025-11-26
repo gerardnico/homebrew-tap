@@ -3,7 +3,7 @@ class Giture < Formula
   homepage "https://github.com/gerardnico/giture"
   url "https://github.com/gerardnico/giture/releases/download/v0.1.1/giture-0.1.1.zip"
   version "0.1.1"
-  sha256 "e5194edbec1d7f69ada437dfa2218f956c1f5839419c54f42d607f50966bd76a"
+  sha256 "ae7f0076aacc183bd95489dd2fcbca914e35d72223748ca67fdf5b424a9b7132"
   license "Apache-2.0"
 
   depends_on "coreutils"

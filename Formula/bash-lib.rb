@@ -19,8 +19,12 @@ class BashLib < Formula
 
     # Library installation
     libexec.install Dir["lib/*.sh"]
+    # Not: lib.install Dir["lib/*.sh"]
+    # because it will install it as shared library
+    # and we get the following link problem
+    # libxxx is a symlink belonging to giture. You can unlink it
 
-    # Injecting the env
+    # Injecting the path and version in the header
     Dir["#{bin}/*"].each do |f|
       next unless File.file?(f)
 
@@ -28,6 +32,7 @@ class BashLib < Formula
       new_header = <<~EOS
         #!/usr/bin/env bash
         BASH_LIB_PATH="#{libexec}"
+        PROJECT_VERSION="0.1.0"
       EOS
 
       File.write(f, new_header + content.drop(1).join)
@@ -58,8 +63,8 @@ end
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system bin/"program", "do", "something"`.
 
-    output = shell_output("#{bin}/bashlib-docgen --help")
-    # assert_match "0.1.0", output
+    output = shell_output("#{bin}/bashlib-docgen --version")
+    assert_match "0.1.0", output
 
   end
 end

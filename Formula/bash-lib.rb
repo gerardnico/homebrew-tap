@@ -18,7 +18,20 @@ class BashLib < Formula
     # man1.install Dir["man1/*.1"]
 
     # Library installation
-    lib.install Dir["lib/*.sh"]
+    libexec.install Dir["lib/*.sh"]
+
+    # Injecting the env
+    Dir["#{bin}/*"].each do |f|
+      next unless File.file?(f)
+
+      content = File.read(f).lines
+      new_header = <<~EOS
+        #!/usr/bin/env bash
+        BASH_LIB_PATH="#{libexec}"
+      EOS
+
+      File.write(f, new_header + content.drop(1).join)
+    end
 
 end
 

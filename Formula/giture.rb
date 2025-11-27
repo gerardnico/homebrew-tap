@@ -1,11 +1,13 @@
 class Giture < Formula
-  desc "Git commands for everyday use (Git Flow, Multiple repos command execution, Hosting Backup, ...)"
+  desc "Git commands for your pleaser (Git Flow, Multiple repos command execution, Hosting Backup, ...)"
   homepage "https://github.com/gerardnico/giture"
   url "https://github.com/gerardnico/giture/releases/download/v0.1.1/giture-0.1.1.zip"
   version "0.1.1"
-  sha256 "097621f7217171df9e0a738f99398d189b26a1679fe2021281ee09a551dafe06"
+  sha256 "e0c014fa9eb1f0a8d4c3504ca427844e602193c4fef6b97bd2088c23a8d9acc0"
   license "Apache-2.0"
 
+  # Mostly due to the hosting backup command
+  # see its documentation
   depends_on "coreutils"
   depends_on "git"
   depends_on "openssh"
@@ -22,7 +24,25 @@ class Giture < Formula
     man1.install Dir["man1/*.1"]
 
     # Library installation
-    lib.install Dir["lib/*.sh"]
+    libexec.install Dir["lib/*.sh"]
+    # Not: lib.install Dir["lib/*.sh"]
+    # because it will install it as shared library
+    # and we get the following link problem
+    # libxxx is a symlink belonging to giture. You can unlink it
+
+    # Injecting the path and version in the header
+    Dir["#{bin}/*"].each do |f|
+      next unless File.file?(f)
+
+      content = File.read(f).lines
+      new_header = <<~EOS
+        #!/usr/bin/env bash
+        BASH_LIB_PATH="#{libexec}"
+        PROJECT_VERSION="0.1.1"
+      EOS
+
+      File.write(f, new_header + content.drop(1).join)
+    end
 
 end
 

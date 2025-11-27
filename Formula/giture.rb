@@ -3,7 +3,7 @@ class Giture < Formula
   homepage "https://github.com/gerardnico/giture"
   url "https://github.com/gerardnico/giture/releases/download/v0.1.1/giture-0.1.1.zip"
   version "0.1.1"
-  sha256 "e0c014fa9eb1f0a8d4c3504ca427844e602193c4fef6b97bd2088c23a8d9acc0"
+  sha256 "fc53eba9e912828156d450e49e2c27ecdb09f38a0c46ae77be160a38115f359c"
   license "Apache-2.0"
 
   # Mostly due to the hosting backup command
@@ -37,7 +37,7 @@ class Giture < Formula
       content = File.read(f).lines
       new_header = <<~EOS
         #!/usr/bin/env bash
-        BASH_LIB_PATH="#{libexec}"
+        GITURE_BASH_LIB_PATH="#{libexec}"
         PROJECT_VERSION="0.1.1"
       EOS
 

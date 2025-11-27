@@ -1,3 +1,5 @@
+# Still used by dockx
+# To delete when dockx does not user it anymore
 class Bashlib < Formula
   desc "A collection of bash libraries"
   homepage "https://github.com/gerardnico/bash-libs"

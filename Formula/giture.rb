@@ -1,9 +1,9 @@
 class Giture < Formula
   desc "Git commands for your pleaser (Git Flow, Multiple repos command execution, Hosting Backup, ...)"
   homepage "https://github.com/gerardnico/giture"
-  url "https://github.com/gerardnico/giture/releases/download/v0.1.1/giture-0.1.1.zip"
-  version "0.1.1"
-  sha256 "fc53eba9e912828156d450e49e2c27ecdb09f38a0c46ae77be160a38115f359c"
+  url "https://github.com/gerardnico/giture/releases/download/v0.1.2/giture-0.1.2.zip"
+  version "0.1.2"
+  sha256 "7b356f805727dc88e1ca0cce2677e2101830411ceef777d0556e676aa2f7ec63"
   license "Apache-2.0"
 
   # Mostly due to the hosting backup command
@@ -37,8 +37,8 @@ class Giture < Formula
       content = File.read(f).lines
       new_header = <<~EOS
         #!/usr/bin/env bash
-        GITURE_BASH_LIB_PATH="#{libexec}"
-        PROJECT_VERSION="0.1.1"
+        BASHLIB_PATH="#{libexec}"
+        PROJECT_VERSION="0.1.2"
       EOS
 
       File.write(f, new_header + content.drop(1).join)
@@ -70,7 +70,7 @@ end
     # executables being tested: `system bin/"program", "do", "something"`.
 
     output = shell_output("#{bin}/git-exec --help")
-    # assert_match "0.1.1", output
+    # assert_match "0.1.2", output
 
   end
 end

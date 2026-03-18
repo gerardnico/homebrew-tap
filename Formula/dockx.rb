@@ -6,10 +6,7 @@ class Dockx < Formula
   sha256 "7501189f83904357b9a60bae92c8b3ae4b62a0a212ed7eb4f0264ed3c24fb54c"
   license "Apache-2.0"
   # https://rubydoc.brew.sh/Formula#head-class_method
-  head "https://github.com/bytle/kubee.git", branch: "main"
-
-
-  depends_on "ansible"
+  head "https://github.com/gerardnico/dock-x.git", branch: "main"
 
   def install
 
@@ -67,7 +64,7 @@ end
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system bin/"program", "do", "something"`.
 
-    output = shell_output("#{bin}/kubee --help")
+    output = shell_output("#{bin}/dock-x --help")
     # assert_match "0.1.0", output
 
   end

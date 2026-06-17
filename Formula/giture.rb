@@ -1,9 +1,9 @@
 class Giture < Formula
   desc "Git commands for your pleaser (Git Flow, Multiple repos command execution, Hosting Backup, ...)"
   homepage "https://github.com/gerardnico/giture"
-  url "https://github.com/gerardnico/giture/releases/download/v0.1.6/giture-0.1.6.zip"
-  version "0.1.6"
-  sha256 "d7dec8242b00281806f0182840653e18053f650a487b11449a257b2a0614017e"
+  url "https://github.com/gerardnico/giture/releases/download/v0.1.7/giture-0.1.7.zip"
+  version "0.1.7"
+  sha256 "24701ea8e028bd2027eb328e890e572db24d869cd906dd29ac23088765d67c2a"
   license "Apache-2.0"
 
 
@@ -38,7 +38,7 @@ class Giture < Formula
       new_header = <<~EOS
         #!/usr/bin/env bash
         BASHLIB_PATH="#{libexec}"
-        PROJECT_VERSION="0.1.6"
+        PROJECT_VERSION="0.1.7"
       EOS
 
       File.write(f, new_header + content.drop(1).join)
@@ -70,7 +70,7 @@ end
     # executables being tested: `system bin/"program", "do", "something"`.
 
     output = shell_output("#{bin}/git-exec --help")
-    # assert_match "0.1.6", output
+    # assert_match "0.1.7", output
 
   end
 end
